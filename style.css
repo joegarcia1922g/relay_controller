@@ -1,0 +1,201 @@
+/* Reset browser default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container Styling */
+.container {
+    background-color: #fff;
+    width: 70%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h2 {
+    font-weight: 300;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Input Fields Styling */
+.input-field {
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Buttons Styling */
+.btn {
+    padding: 12px 18px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.primary-btn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #2980b9;
+}
+
+.danger-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.danger-btn:hover {
+    background-color: #c0392b;
+}
+
+/* ESP32 List */
+.esp-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.esp-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+.esp-list li .control-btn, .esp-list li .remove-btn {
+    margin-left: 10px;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 0 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-buttons button {
+    margin: 10px 0;
+    width: 80%;
+}
+
+.modal.open {
+    transform: translateX(0);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Password modal input styling */
+#remove-modal .modal-content {
+  text-align: center;
+}
+
+#remove-modal input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#remove-modal p {
+  margin-bottom: 15px;
+}

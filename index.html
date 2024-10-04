@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 Control Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>ESP32 Module Management</h1>
+
+    <div id="add-esp">
+      <h2>Add New ESP32 Module</h2>
+      <input type="text" id="esp-name" placeholder="Enter ESP32 Name" class="input-field">
+      <input type="text" id="esp-ip" placeholder="Enter ESP32 IP Address" class="input-field">
+      <button id="add-btn" class="btn primary-btn">Add ESP32</button>
+      <p id="add-error" class="error-message"></p>
+    </div>
+
+    <div id="module-list">
+      <h2>Your ESP32 Modules</h2>
+      <ul id="esp-list" class="esp-list"></ul>
+    </div>
+  </div>
+
+  <!-- Modal for Control Panel -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Control Panel - <span id="selected-esp"></span></h2>
+      <div class="modal-buttons">
+        <button id="open-door" class="btn primary-btn">Open Relay</button>
+        <button id="close-door" class="btn danger-btn">Close Relay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Remove Confirmation -->
+  <div id="remove-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close remove-close">&times;</span>
+      <h2>Confirm Removal</h2>
+      <p>Are you sure you want to remove this module?</p>
+      <input type="password" id="admin-password" class="input-field" placeholder="Enter Admin Password">
+      <p id="password-error" class="error-message"></p>
+      <button id="confirm-remove-btn" class="btn danger-btn">Confirm Remove</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
