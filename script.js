@@ -43,7 +43,7 @@ addBtn.addEventListener('click', () => {
     return;
   }
 
-  const module = { name: espName, ip: espIp };
+  const module = { name: espName, ip: espIp, status: 'Checking...' }; // Initial status as 'Checking...'
   espModules.push(module);
 
   // Store updated list in local storage
@@ -59,6 +59,7 @@ addBtn.addEventListener('click', () => {
 function addEspModule(module) {
   const li = document.createElement('li');
   li.innerHTML = `${module.name} (${module.ip}) 
+                  <span class="status">${module.status}</span> 
                   <button class="control-btn btn primary-btn">Control</button>
                   <button class="remove-btn btn danger-btn">Remove</button>`;
 
@@ -69,6 +70,33 @@ function addEspModule(module) {
   li.querySelector('.remove-btn').addEventListener('click', () => removeEspModule(module));
 
   espList.appendChild(li);
+
+  // Check status of the ESP32
+  checkEspStatus(module.ip, li.querySelector('.status'));
+
+  // Set up periodic status checks (every 5 seconds)
+  setInterval(() => {
+    checkEspStatus(module.ip, li.querySelector('.status'));
+  }, 5000); // 5000 ms = 5 seconds
+}
+
+// Check ESP32 online/offline status
+function checkEspStatus(ip, statusElement) {
+  fetch(`http://${ip}/`)
+    .then(response => {
+      if (response.ok) {
+        statusElement.textContent = 'Online';
+        statusElement.style.color = 'green';  // Change status color to green when online
+      } else {
+        statusElement.textContent = 'Offline';
+        statusElement.style.color = 'red';  // Change status color to red when offline
+      }
+    })
+    .catch(error => {
+      statusElement.textContent = 'Offline';
+      statusElement.style.color = 'red';
+      console.error(`ESP32 at ${ip} is offline`, error);
+    });
 }
 
 // Show control panel for selected ESP32
