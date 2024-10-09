@@ -112,6 +112,23 @@ h2 {
     margin-left: 10px;
 }
 
+/* Status indicator styling */
+.status {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.status.online {
+    background-color: #2ecc71; /* Green for online */
+}
+
+.status.offline {
+    background-color: #e74c3c; /* Red for offline */
+}
+
 .error-message {
     color: #e74c3c;
     font-size: 14px;
@@ -199,3 +216,4 @@ h2 {
 #remove-modal p {
   margin-bottom: 15px;
 }
+
